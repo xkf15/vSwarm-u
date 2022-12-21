@@ -51,7 +51,17 @@ start_logging
 {
 # set -e
 ## Download the test client.
-curl  "http://10.0.2.2:3003/test-client" -f -o /root/test-client
+# mkdir /root/build-client/
+# wget -r -np -k "http://10.0.2.2:3003/client/" -P /root/build-client
+# cd /root/build-client
+# ls /root/build-client
+# /usr/bin/make all
+# mv /root/build-client/client /root/test-client
+# rm -rf /root/build-client
+uname -r
+ldd --version ldd
+# curl  "http://10.0.2.2:3003/test-client" -f -o /root/test-client
+curl  "http://10.0.2.2:3003/client-glibc2.27" -f -o /root/test-client
 chmod 755 /root/test-client
 
 ## Download the function yaml and list.

@@ -42,7 +42,8 @@ CPUS    := 2
 
 ## Required resources
 KERNEL 			?= $(RESOURCES)/kernel
-DISK 			?= $(RESOURCES)/disk-image.qcow2
+DISK 			?= $(RESOURCES)/my_ubuntu22_image_20221012.qcow2
+# DISK 			?= $(RESOURCES)/disk-image.qcow2
 TEST_CLIENT		?= $(RESOURCES)/client
 GEM5_CONFIG 	:= $(ROOT)/test/run_sim_test.py
 GEM5_DIR		?= $(RESOURCES)/gem5/
@@ -110,7 +111,8 @@ dep_check: dep_check_qemu dep_check_gem5
 ## Build the test setup ----------------------------
 # Internal files in the test directory
 WK_KERNEL 			:= $(WORKING_DIR)/kernel
-WK_DISK 			:= $(WORKING_DIR)/disk.qcow2
+WK_DISK 			:= $(WORKING_DIR)/my_ubuntu22_image_20221012.qcow2
+# WK_DISK 			:= $(WORKING_DIR)/disk.qcow2
 # qemu can use qcow2 images but gem5 cannot
 WK_DISK_IMG			:= $(WORKING_DIR)/disk.img
 WK_CLIENT			:= $(WORKING_DIR)/test-client
@@ -187,9 +189,9 @@ run_kvm:
 		-cpu host -enable-kvm \
 		-smp ${CPUS} \
 		-m ${MEMORY} \
-		-drive file=$(WK_DISK),format=qcow2,if=virtio \
+		-drive file=$(WK_DISK),format=qcow2 \
 		-kernel $(WK_KERNEL) \
-		-append 'console=ttyS0 root=/dev/vda2'
+		-append 'console=ttyS0 root=/dev/hda2'
 
 
 run_no_kvm:

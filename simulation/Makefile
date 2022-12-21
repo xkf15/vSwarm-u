@@ -38,6 +38,7 @@ CPUS    := 2
 
 
 ## Required resources
+# KERNEL 		?= /boot/vmlinuz-5.15.0-47-generic
 KERNEL 		?= $(RESOURCES)/kernel
 DISK		?= $(RESOURCES)/disk-image.qcow2
 GEM5		?= $(RESOURCES)/gem5/build/X86/gem5.opt
@@ -48,6 +49,7 @@ GEM5		?= $(RESOURCES)/gem5/build/X86/gem5.opt
 ##################################################################
 ## Build the working directory ----------------------------
 #
+# WK_KERNEL 	:= /boot/vmlinuz-5.15.0-47-generic
 WK_KERNEL 	:= $(WORKING_DIR)/kernel
 WK_DISK 	:= $(WORKING_DIR)/disk.img
 WK_CLIENT	:= $(WORKING_DIR)/test-client
@@ -175,6 +177,8 @@ delete_run_script: $(WORKING_DIR)/run.sh
 
 install_functions: build-wkdir
 	if [ -f $(LOGFILE) ]; then rm $(LOGFILE); fi
+	# mkdir ${WORKING_DIR}/client
+	cp simulation/client-glibc2.27 ${WORKING_DIR}/
 	$(MAKE) -f $(MKFILE) create_install_script
 	$(MAKE) -f $(MKFILE) serve_start
 	$(MAKE) -f $(MKFILE) run_emulator
