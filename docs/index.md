@@ -9,7 +9,7 @@ has_children: false
 
 <!-- # vSwarm-&mu; Documentation -->
 
-Serverless computing represent a new class of workloads, challenging the microarchitecture of modern CPU's. The mission of vSwarm-&mu; is to provide microarchitect's with the tools they need to address those challenges in next generation CPU's.
+Serverless computing represent a new class of workloads, challenging the microarchitecture of modern CPU's. The mission of vSwarm-&mu; is to provide microarchitect's with the tools they need to address those challenges in next generation CPU's. As such vSwarm-&mu; is part of the [vHive Ecosystem](https://vhive-serverless.github.io/) and allow cycle accurate simulations of containerized serverless benchmarks from [vSwarm](https://github.com/vhive-serverless/vSwarm) using [gem5](https://www.gem5.org/)
 {: .fs-6 .fw-300 }
 
 
@@ -80,7 +80,7 @@ We would be happy to answer any questions in GitHub Issues and encourage the ope
 vSwarm-&mu; is free. We publish the code under the terms of the MIT License that allows distribution, modification, and commercial use.
 This software, however, comes without any warranty or liability.
 
-The software is maintained at the [EASE lab](https://easelab.inf.ed.ac.uk/) as part of the University of Edinburgh.
+The software is maintained by the [vHive Ecosystem](https://vhive-serverless.github.io/) as well as the [EASE lab](https://easelab.inf.ed.ac.uk/) as part of the University of Edinburgh.
 
 
 ### Maintainers
